@@ -1,0 +1,72 @@
+html{
+  height:100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  border: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.3);
+  -webkit-text-size-adjust: 100%;
+  font-family: "ヒラギノ角ゴ Pro W6", "HiraKakuPro-W6", "Yu Gothic", YuGothic, Meiryo, sans-serif;
+}
+
+.clearfix:after {
+  content:" ";
+  display:block;
+  clear:both;
+}
+
+#fp-nav{
+  z-index: 1000 !important;
+}
+
+/* image */
+img,
+  /* block */
+div, p, blockquote,
+  /* heading */
+h1, h2, h3, h4, h5, h6,
+  /* list */
+ul, ol, li, dl, dt, dd,
+  /* form */
+form, fieldset, textarea {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  list-style: none;
+}
+
+a {
+  cursor:pointer;
+}
+
+table {
+  font-size:100%;
+}
+
+hr.separator {
+  display: none;
+}
+
+input, button, select, textarea {
+  resize: none;
+  outline:none;
+  -webkit-appearance: none;
+  border: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-color: rgba(0,0,0,0);
+}
+
+img {
+  vertical-align: bottom;
+}
+
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+  display: block;
+}
