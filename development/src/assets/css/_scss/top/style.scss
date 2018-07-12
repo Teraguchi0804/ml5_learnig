@@ -15,7 +15,19 @@ body {
 }
 
 #top {
-
+  padding-top: 50px;
+  padding-left: 50px;
+  img {
+    width: 250px;
+    height: 250px;
+    display: inline;
+  }
+  #transferBtn {
+    width: 100px;
+    height: auto;
+    padding: 5px;
+    background-color: chartreuse;
+  }
 }
 
 @media screen and (max-width: 768px) {
