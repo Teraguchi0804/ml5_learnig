@@ -16,9 +16,14 @@ export default class DisplayTop {
 		this.statusMsg = null;
 		this.transferBtn = null;
 
-		// Create two Style methods with different pre-trained models
-		this.style1 = ml5.styleTransfer('assets/resource/models/wave', this.modelLoaded);
-		this.style2 = ml5.styleTransfer('assets/resource/models/udnie', this.modelLoaded);
+		// // Create two Style methods with different pre-trained models
+		// this.style1 = ml5.styleTransfer('./assets/resource/models/wave', this.modelLoaded);
+		// this.style2 = ml5.styleTransfer('./assets/resource/models/udnie', this.modelLoaded);
+
+		this.style1 = ml5.styleTransfer('../assets/resource/models/wave', function () {
+			window.console.log('aaa');
+		});
+		this.style2 = ml5.styleTransfer('../assets/resource/models/udnie', this.modelLoaded);
 
 		this.modelLoaded = this._modelLoaded.bind(this);
 		this.transferImages = this._transferImages.bind(this);
@@ -51,7 +56,7 @@ export default class DisplayTop {
 	 * @private
 	 */
 	_modelLoaded() {
-
+		window.console.log('modelLoaded!!');
 		// Check if both models are loaded
 		if(this.style1.ready && this.style2.ready) {
 			this.statusMsg.html('Ready!')
