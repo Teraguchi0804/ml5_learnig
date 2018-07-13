@@ -20,15 +20,14 @@
 <body>
   <h1>Style Transfer Image Example using p5.js</h1>
   <p id="statusMsg">Loading Models...</p>
-  <button id="transferBtn">Transfer!</button>
-  <p>Input Image:</p>
-  <!--<img src="img/320.jpg" alt="input img" id="inputImg">-->
-  <!--<input type="file" name="upfile" id="inputImg" accept="image/*"/>-->
 
+  <p>Input Image:</p>
   <form enctype="multipart/form-data" method="post">
     <input type="file" name="userfile" accept="image/*">
   </form>
 
+  <button id="transferBtn">Transfer!</button>
+  
   <div id="styleA">
     <p>Style A: <a href="https://en.wikipedia.org/wiki/The_Great_Wave_off_Kanagawa">The Great Wave off Kanagawa, 1829 - Katsushika Hokusai</a></p>
     <img src="img/wave.jpg" alt="style one">
