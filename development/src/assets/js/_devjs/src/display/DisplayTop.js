@@ -16,14 +16,15 @@ export default class DisplayTop {
 		this.statusMsg = null;
 		this.transferBtn = null;
 
-		// // Create two Style methods with different pre-trained models
-		// this.style1 = ml5.styleTransfer('./assets/resource/models/wave', this.modelLoaded);
-		// this.style2 = ml5.styleTransfer('./assets/resource/models/udnie', this.modelLoaded);
-
+		// Create two Style methods with different pre-trained models
 		this.style1 = ml5.styleTransfer('../assets/resource/models/wave', function () {
-			window.console.log('aaa');
-		});
-		this.style2 = ml5.styleTransfer('../assets/resource/models/udnie', this.modelLoaded);
+			this.modelLoaded();
+			window.console.log('style1_COMP!!');
+		}.bind(this));
+		this.style2 = ml5.styleTransfer('../assets/resource/models/udnie', function () {
+			this.modelLoaded();
+			window.console.log('style2_COMP!!');
+		}.bind(this));
 
 		this.modelLoaded = this._modelLoaded.bind(this);
 		this.transferImages = this._transferImages.bind(this);
