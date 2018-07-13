@@ -1,13 +1,28 @@
-// Copyright (c) 2018 ml5
-//
-// This software is released under the MIT License.
-// https://opensource.org/licenses/MIT
+$(function() {
+	$('input[type=file]').after('<div><span></span></div>');
 
-/* ===
-ml5 Example
-Style Transfer Image Example using p5.js
-This uses a pre-trained model of The Great Wave off Kanagawa and Udnie (Young American Girl, The Dance)
-=== */
+	// アップロードするファイルを選択
+	$('input[type=file]').change(function() {
+		var file = $(this).prop('files')[0];
+
+		// 画像以外は処理を停止
+		if (! file.type.match('image.*')) {
+			// クリア
+			$(this).val('');
+			$('span').html('');
+			return;
+		}
+
+		// 画像表示
+		var reader = new FileReader();
+		reader.onload = function() {
+			var img_src = $('<img id="inputImg">').attr('src', reader.result);
+			$('span').html(img_src);
+		};
+		reader.readAsDataURL(file);
+	});
+});
+
 
 let inputImg;
 let statusMsg;
@@ -18,12 +33,13 @@ const style1 = ml5.styleTransfer('models/wave', modelLoaded);
 const style2 = ml5.styleTransfer('models/udnie', modelLoaded);
 
 function setup() {
-  // noCanvas();
+
+  noCanvas();
   // Status Msg
   statusMsg = select('#statusMsg');
 
   // Get the input image
-  inputImg = select('#inputImg');
+  // inputImg = select('#inputImg');
 
   // Transfer Button
   transferBtn = select('#transferBtn')
@@ -40,6 +56,8 @@ function modelLoaded() {
 
 // Apply the transfer to both images!
 function transferImages() {
+	inputImg = select('#inputImg');
+
   statusMsg.html('Applying Style Transfer...!');
 
   style1.transfer(inputImg, function(result) {
@@ -52,3 +70,5 @@ function transferImages() {
 
   statusMsg.html('Done!');
 }
+
+
